@@ -22,7 +22,7 @@ class Home extends CI_Controller
 
    $this->load->view('templates/templates-user/header',$data);
    $this->load->view('buku/daftarbuku',$data);
-
+   $this->load->view('templates/templates-user/modal');
    $this->load->view('templates/templates-user/footer',$data);
  }
 else
@@ -30,11 +30,11 @@ else
            $data['user']='Pengunjung';
            $this->load->view('templates/templates-user/header',$data);
            $this->load->view('buku/daftarbuku',$data);
-          
+           $this->load->view('templates/templates-user/modal');
            $this->load->view('templates/templates-user/footer',$data);
   }
-    }
-    public function detailBuku()
+   }
+   public function detailBuku()
     {
         $id = $this->uri->segment(3);
         $buku = $this->ModelBuku->joinKategoriBuku(['buku.id' => $id])->result();
@@ -58,7 +58,7 @@ else
 
         $this->load->view('templates/templates-user/header', $data);
         $this->load->view('buku/detail-buku', $data);
-     
+        $this->load->view('templates/templates-user/modal');
         $this->load->view('templates/templates-user/footer');
     }
 
